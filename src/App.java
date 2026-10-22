@@ -1,5 +1,3 @@
-package io.github.auberonedu.equalsLivecode;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -12,12 +10,16 @@ public class App {
         // BEFORE running the code, make a prediction of what the following will print:
 
         Centroid locA = new Centroid(4, 9, "Salamander");
-        Centroid locB = new Centroid(4, 9, "Salamander");
+        Centroid locB = new Centroid(4, 9, "Food");
+        Centroid locC = new Centroid(4, 9, "Food");
 
         System.out.println("Result of locA == locB " + (locA == locB));
         System.out.println("Result of locA.equals(locB) " + locA.equals(locB));
 
-        //videoDemo();
+        System.out.println("Result of locB == locC " + (locB == locC));
+        System.out.println("Result of locB.equals(locC) " + locB.equals(locC));
+
+        // videoDemo();
     }
 
     // We will look at this a bit later in the livecode, please ignore for first part
@@ -86,13 +88,13 @@ public class App {
 
         Finder finder = new Finder(legend);
         Set<Centroid> salamanderLocations = finder.allLocations(video, "Salamander");
-        Set<Centroid> foodLocations = finder.allLocations(video, "Food");
+        Set<Centroid> foodLocations = finder.allLocations(video, "Food"); 
 
-        System.out.println("Number of locations the salamander visited " + salamanderLocations.size());
-        System.out.println("Number of locations the food was at " + foodLocations.size());
+        System.out.println("Number of locations the salamander visited " + salamanderLocations.size());//5
+        System.out.println("Number of locations the food was at " + foodLocations.size());//1
 
         boolean hasOverlap = !Collections.disjoint(salamanderLocations, foodLocations);
-        System.out.println("Do the salamander locations overlap with the food locations: " + hasOverlap);
+        System.out.println("Do the salamander locations overlap with the food locations: " + hasOverlap);//true
     }
 
 }
